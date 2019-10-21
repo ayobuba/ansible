@@ -1,0 +1,12 @@
+---
+# tasks file for initialRepository
+
+- name: Installing Yum Repositories
+  yum:
+    name: ['gcc-c++', 'make','git','ansible']
+    state: installed
+
+- name: Setting up repo with curl commands
+  raw:  curl -sL https://rpm.nodesource.com/setup_10.x | sudo -E bash -
+
+

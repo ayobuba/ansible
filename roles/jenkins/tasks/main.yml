@@ -1,0 +1,33 @@
+---
+
+# Task file for jenkins
+- name: Removing old versions of JAvA from Amazon Linux
+  yum:
+    name: java-1.7.0-openjdk
+    state: absent
+
+- name: Install specific suported version of JAVA
+  yum:
+    name: java-1.8.0-opensdk
+    state: present
+
+- name: Add Jenkins repository
+  shell: wget -o /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+
+- name: Import Jenkins GPG key
+  rpm_key:
+    key: https://pkg.jenkins.io/redhat/jenkins.io.key
+    state: present
+
+- name: install Jenkins
+  yum:
+    name: jenkins-2.99
+    enablerepo: jenkins
+    state: present
+
+- name: Start Jenkins
+  service:
+    name: jenkins
+    enabled: yes
+    state: started
+

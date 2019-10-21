@@ -1,0 +1,10 @@
+---
+# tasks file for nodejs
+
+- name: Installing node and npm
+  yum:
+    name: ['nodejs']
+    state: installed
+#  with_items:
+#    - nodejs
+#    - npm
