@@ -1,5 +1,5 @@
 ---
-# tasks file for helloworld after branch
+# tasks file for helloworld
 
 - name: Copying the application file
   copy:
@@ -9,12 +9,6 @@
     group: ec2-user
     mode: 0644
   notify: restart helloworld
-
-- name: Creating the init directory
-  file:
-    path: /etc/init
-    state: directory
-    mode: 0755
 
 - name: Copying the upstart file
   copy:
