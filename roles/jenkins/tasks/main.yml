@@ -11,16 +11,16 @@
     state: present
 
 - name: Add Jenkins repository
-  shell: wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+  shell: wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
 
 - name: Import Jenkins GPG key
   rpm_key:
     state: present
-    key: https://pkg.jenkins.io/redhat/jenkins.io.key
+    key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
 
 - name: Install Jenkins
   yum:
-    name: jenkins-2.99
+    name: jenkins
     enablerepo: jenkins
     state: present
 
@@ -29,3 +29,5 @@
     name: jenkins
     enabled: yes
     state: started
+
+
