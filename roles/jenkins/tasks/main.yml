@@ -45,10 +45,10 @@
   wait_for: timeout=30
   delegate_to: localhost
 
-- name: enable jenkins
-  systemd:
-    name: jenkins
-    enabled: true
+#- name: enable jenkins
+#  systemd:
+#    name: jenkins
+#    enabled: true
 
 - name: init password jenkins
   shell: cat /var/lib/jenkins/secrets/initialAdminPassword
