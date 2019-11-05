@@ -52,6 +52,12 @@
 #    name: jenkins
 #    enabled: true
 
+- name: Restart Jenkins
+  become: yes
+  become_method: sudo
+  command: service jenkins restart
+
+
 - name: init password jenkins
   shell: cat /var/lib/jenkins/secrets/initialAdminPassword
   changed_when: false
